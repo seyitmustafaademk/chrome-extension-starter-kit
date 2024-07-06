@@ -3,7 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     // Giriş noktası belirtilmedi çünkü bu yapılandırma sadece kopyalama işlemi için kullanılacak
-    mode: 'development',
+    mode: 'production',
     entry: {
         background: './src/background.js',
         content: './src/content.js'
