@@ -9,7 +9,7 @@ Bu başlangıç kitini kullanarak yeni bir Chrome uzantısı projesi başlatmak 
 
 1. Repositoriyi klonlayın:
     ```bash
-    git clone https://github.com/your-username/chrome-extension-starter.git
+    git clone https://github.com/seyitmustafaademk/chrome-extension-starter-kit
     ```
 
 2. Proje dizinine gidin:
