@@ -29,8 +29,16 @@ export class SessionManager {
 
     /**
      * Clears all session values.
+     * @returns {Promise<void>}
      */
     clearSession() {
-        sessionStorage.clear();
+        return new Promise((resolve, reject) => {
+            try {
+                sessionStorage.clear();
+                resolve();
+            } catch (error) {
+                reject(error);
+            }
+        });
     }
 }
