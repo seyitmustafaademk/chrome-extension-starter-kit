@@ -1,0 +1,14 @@
+{
+  "app_name": {
+    "message": "Paquete de Inicio para Extensiones de Chrome",
+    "description": "Nombre de la extensión"
+  },
+  "app_description": {
+    "message": "Esto proporciona un punto de partida para los desarrolladores que deseen crear extensiones para Chrome.",
+    "description": "Descripción de la extensión"
+  },
+  "author_name": {
+    "message": "SMAK SOFTWARE",
+    "description": "Editor de la extensión"
+  }
+}

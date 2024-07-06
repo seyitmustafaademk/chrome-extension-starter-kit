@@ -1,0 +1,14 @@
+{
+  "app_name": {
+    "message": "Набор начального уровня для расширений Chrome",
+    "description": "Название расширения"
+  },
+  "app_description": {
+    "message": "Это предоставляет начальную точку для разработчиков для создания расширений Chrome.",
+    "description": "Описание расширения"
+  },
+  "author_name": {
+    "message": "SMAK SOFTWARE",
+    "description": "Издатель расширения"
+  }
+}

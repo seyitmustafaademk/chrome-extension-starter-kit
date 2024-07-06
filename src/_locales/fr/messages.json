@@ -1,0 +1,14 @@
+{
+  "app_name": {
+    "message": "Kit de Démarrage d'Extension Chrome",
+    "description": "Nom de l'extension"
+  },
+  "app_description": {
+    "message": "Ceci offre un point de départ aux développeurs pour créer des extensions Chrome.",
+    "description": "Description de l'extension"
+  },
+  "author_name": {
+    "message": "SMAK SOFTWARE",
+    "description": "Éditeur de l'extension"
+  }
+}

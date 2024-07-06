@@ -1,0 +1,14 @@
+{
+  "app_name": {
+    "message": "حزمة بداية إضافة Chrome",
+    "description": "اسم الإضافة"
+  },
+  "app_description": {
+    "message": "هذا يوفر بداية للمطورين لتطوير إضافة Chrome.",
+    "description": "وصف الإضافة"
+  },
+  "author_name": {
+    "message": "SMAK SOFTWARE",
+    "description": "الشركة/الشخص المطور للإضافة"
+  }
+}

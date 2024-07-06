@@ -1,0 +1,14 @@
+{
+  "app_name": {
+    "message": "Chrome Extension Starter Pack",
+    "description": "Extension name"
+  },
+  "app_description": {
+    "message": "This provides a starting point for developers to create Chrome extensions.",
+    "description": "Extension description"
+  },
+  "author_name": {
+    "message": "SMAK SOFTWARE",
+    "description": "Extension publisher"
+  }
+}

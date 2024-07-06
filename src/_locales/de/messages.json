@@ -1,0 +1,14 @@
+{
+  "app_name": {
+    "message": "Chrome Erweiterungsstarterpaket",
+    "description": "Erweiterungsname"
+  },
+  "app_description": {
+    "message": "Dies bietet Entwicklern einen Einstieg in die Entwicklung von Chrome-Erweiterungen.",
+    "description": "Erweiterungsbeschreibung"
+  },
+  "author_name": {
+    "message": "SMAK SOFTWARE",
+    "description": "Veröffentlicher der Erweiterung"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "app_name": {
+    "message": "Pacchetto di Avvio per Estensioni di Chrome",
+    "description": "Nome dell'estensione"
+  },
+  "app_description": {
+    "message": "Questo fornisce un punto di partenza per sviluppatori per creare estensioni Chrome.",
+    "description": "Descrizione dell'estensione"
+  },
+  "author_name": {
+    "message": "SMAK SOFTWARE",
+    "description": "Editore dell'estensione"
+  }
+}

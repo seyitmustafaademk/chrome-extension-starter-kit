@@ -1,0 +1,14 @@
+{
+  "app_name": {
+    "message": "Paket Awal Ekstensi Chrome",
+    "description": "Nama ekstensi"
+  },
+  "app_description": {
+    "message": "Ini memberikan titik awal bagi pengembang untuk membuat ekstensi Chrome.",
+    "description": "Deskripsi ekstensi"
+  },
+  "author_name": {
+    "message": "SMAK SOFTWARE",
+    "description": "Penerbit ekstensi"
+  }
+}

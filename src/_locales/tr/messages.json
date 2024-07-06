@@ -1,0 +1,14 @@
+{
+  "app_name": {
+    "message": "Chrome Uzantı Başlangıç Paketi",
+    "description": "Uzantı adı"
+  },
+  "app_description": {
+    "message": "Bu, Chrome uzantısı geliştirmek isteyenlere başlangıç yapma imkanı sunar.",
+    "description": "Uzantı açıklaması"
+  },
+  "author_name": {
+    "message": "SMAK SOFTWARE",
+    "description": "Uzantı yayınlayan kişi/şirket"
+  }
+}

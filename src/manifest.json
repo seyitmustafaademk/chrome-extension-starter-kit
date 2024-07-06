@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "__MSG_app_name__",
+  "description": "__MSG_app_description__",
+  "author": "__MSG_author_name__",
+  "default_locale": "tr",
+  "offline_enabled": true,
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "32": "assets/icons/icon-32.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  },
+
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "notifications",
+    "storage"
+  ],
+  "commands": {
+    "toggle-feature": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      },
+      "description": "Toggle a specific feature"
+    }
+  },
+
+
+  "background": {
+    "service_worker": "/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "/popup/index.html",
+    "icons": {
+      "16": "assets/icons/icon-16.png",
+      "32": "assets/icons/icon-32.png",
+      "48": "assets/icons/icon-48.png",
+      "128": "assets/icons/icon-128.png"
+    }
+  },
+  "options_page": "options/index.html",
+
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "src/assets/images/*",
+        "src/assets/styles/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "app_name": {
+    "message": "بسته شروع گسترش Chrome",
+    "description": "نام گسترش"
+  },
+  "app_description": {
+    "message": "این امکان شروع برای توسعه‌دهندگان برای ایجاد گسترش‌های Chrome را فراهم می‌کند.",
+    "description": "توضیحات گسترش"
+  },
+  "author_name": {
+    "message": "SMAK SOFTWARE",
+    "description": "منتشر کننده گسترش"
+  }
+}
