@@ -1,71 +1,88 @@
 export class StorageManager {
     /**
-     * Sets an item in storage.
-     * @param {string} key - The key of the item.
-     * @param {any} value - The value of the item.
-     * @returns {Promise<void>} - A promise that resolves when the item is set.
+     * Handle storage operations using the Chrome storage API.
+     * @param {string} method - The storage method to call ('set', 'get', 'remove', 'clear').
+     * @param {...any} args - Arguments to pass to the storage method.
+     * @returns {Promise<any>} A promise that resolves with the result of the storage operation, or rejects with an error.
+     */
+    static handleChromeStorage(method, ...args) {
+        return new Promise((resolve, reject) => {
+            try {
+                chrome.storage.local[method](...args, (result) => {
+                    if (chrome.runtime.lastError) {
+                        // Özel hata mesajı oluşturma
+                        const errorMessage = `Chrome Storage Error in method ${method}: ${chrome.runtime.lastError.message}`;
+                        console.error(errorMessage);
+                        reject(new Error(errorMessage));
+                    } else {
+                        resolve(result);
+                    }
+                });
+            } catch (error) {
+                // Bilinmeyen hataları yakalama
+                const errorMessage = `Unknown error occurred in StorageManager method ${method}: ${error.message}`;
+                console.error(errorMessage);
+                reject(new Error(errorMessage));
+            }
+        });
+    }
+
+    /**
+     * Set an item in the Chrome local storage.
+     * @param {string} key - The key under which to store the value.
+     * @param {any} value - The value to store.
+     * @returns {Promise<void>} A promise that resolves when the item is set, or rejects with an error.
      */
     static setItem(key, value) {
-        return new Promise((resolve, reject) => {
-            const data = {};
-            data[key] = value;
-            chrome.storage.local.set(data, () => {
-                if (chrome.runtime.lastError) {
-                    reject(chrome.runtime.lastError);
-                } else {
-                    resolve();
-                }
+        const data = {};
+        data[key] = value;
+        return this.handleChromeStorage('set', data)
+            .catch(error => {
+                const errorMessage = `Failed to set item with key "${key}": ${error.message}`;
+                console.error(errorMessage);
+                return Promise.reject(new Error(errorMessage));
             });
-        });
     }
 
     /**
-     * Gets an item from storage.
-     * @param {string} key - The key of the item.
-     * @returns {Promise<any>} - A promise that resolves to the value of the item.
+     * Retrieve an item from the Chrome local storage.
+     * @param {string} key - The key of the item to retrieve.
+     * @returns {Promise<any>} A promise that resolves with the value of the retrieved item, or rejects with an error.
      */
     static getItem(key) {
-        return new Promise((resolve, reject) => {
-            chrome.storage.local.get(key, (result) => {
-                if (chrome.runtime.lastError) {
-                    reject(chrome.runtime.lastError);
-                } else {
-                    resolve(result[key]);
-                }
+        return this.handleChromeStorage('get', key)
+            .then(result => result[key])
+            .catch(error => {
+                const errorMessage = `Failed to get item with key "${key}": ${error.message}`;
+                console.error(errorMessage);
+                return Promise.reject(new Error(errorMessage));
             });
-        });
     }
 
     /**
-     * Removes an item from storage.
-     * @param {string} key - The key of the item.
-     * @returns {Promise<void>} - A promise that resolves when the item is removed.
+     * Remove an item from the Chrome local storage.
+     * @param {string} key - The key of the item to remove.
+     * @returns {Promise<void>} A promise that resolves when the item is removed, or rejects with an error.
      */
     static removeItem(key) {
-        return new Promise((resolve, reject) => {
-            chrome.storage.local.remove(key, () => {
-                if (chrome.runtime.lastError) {
-                    reject(chrome.runtime.lastError);
-                } else {
-                    resolve();
-                }
+        return this.handleChromeStorage('remove', key)
+            .catch(error => {
+                const errorMessage = `Failed to remove item with key "${key}": ${error.message}`;
+                console.error(errorMessage);
+                return Promise.reject(new Error(errorMessage));
             });
-        });
     }
 
     /**
-     * Clears all items from storage.
-     * @returns {Promise<void>} - A promise that resolves when storage is cleared.
+     * Clear all items from the Chrome local storage.
+     * @returns {Promise<void>} A promise that resolves when all items are cleared, or rejects with an error.
      */
     static clear() {
-        return new Promise((resolve, reject) => {
-            chrome.storage.local.clear(() => {
-                if (chrome.runtime.lastError) {
-                    reject(chrome.runtime.lastError);
-                } else {
-                    resolve();
-                }
+        return this.handleChromeStorage('clear')
+            .catch(error => {
+                const errorMessage = `Failed to clear storage: ${error.message}`;
+                console.error(errorMessage);
+                return Promise.reject(new Error(errorMessage));
             });
-        });
     }
 }

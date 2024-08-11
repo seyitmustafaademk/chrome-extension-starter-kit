@@ -4,81 +4,84 @@ export class CookieManager {
     /**
      * Sets a cookie.
      * @param {object} details - The details of the cookie.
-     * @param {string} details.url - The URL with which the cookie to be associated.
-     * @param {string} [details.name] - The name of the cookie.
-     * @param {string} [details.value] - The value of the cookie.
-     * @param {string} [details.domain] - The domain of the cookie.
-     * @param {string} [details.path] - The path of the cookie.
-     * @param {boolean} [details.secure] - Whether the cookie should be marked as Secure.
-     * @param {boolean} [details.httpOnly] - Whether the cookie should be marked as HttpOnly.
-     * @param {string} [details.sameSite] - The SameSite attribute of the cookie.
-     * @param {integer} [details.expirationDate] - The expiration date of the cookie as the number of seconds since the UNIX epoch.
-     * @returns {Promise<chrome.cookies.Cookie>} - The cookie that was set.
+     * @returns {Promise<chrome.cookies.Cookie>} - The cookie that was set, or a rejected promise with an error.
      */
     set(details) {
         return new Promise((resolve, reject) => {
-            chrome.cookies.set(details, (cookie) => {
-                if (chrome.runtime.lastError) {
-                    reject(chrome.runtime.lastError);
-                } else {
-                    resolve(cookie);
-                }
-            });
+            try {
+                chrome.cookies.set(details, (cookie) => {
+                    if (chrome.runtime.lastError) {
+                        reject(new Error(`Failed to set cookie: ${chrome.runtime.lastError.message}`));
+                    } else {
+                        resolve(cookie);
+                    }
+                });
+            } catch (error) {
+                reject(new Error(`Exception in CookieManager.set: ${error.message}`));
+            }
         });
     }
 
     /**
      * Gets a cookie.
      * @param {object} details - The details to identify the cookie.
-     * @param {string} details.url - The URL with which the cookie is associated.
-     * @param {string} details.name - The name of the cookie.
-     * @returns {Promise<chrome.cookies.Cookie>} - The cookie that was retrieved.
+     * @returns {Promise<chrome.cookies.Cookie>} - The cookie that was retrieved, or a rejected promise with an error.
      */
     get(details) {
         return new Promise((resolve, reject) => {
-            chrome.cookies.get(details, (cookie) => {
-                if (chrome.runtime.lastError) {
-                    reject(chrome.runtime.lastError);
-                } else {
-                    resolve(cookie);
-                }
-            });
+            try {
+                chrome.cookies.get(details, (cookie) => {
+                    if (chrome.runtime.lastError) {
+                        reject(new Error(`Failed to get cookie: ${chrome.runtime.lastError.message}`));
+                    } else {
+                        resolve(cookie);
+                    }
+                });
+            } catch (error) {
+                reject(new Error(`Exception in CookieManager.get: ${error.message}`));
+            }
         });
     }
 
     /**
      * Removes a cookie.
      * @param {object} details - The details to identify the cookie.
-     * @param {string} details.url - The URL with which the cookie is associated.
-     * @param {string} details.name - The name of the cookie.
-     * @returns {Promise<object>} - An object containing details about the removed cookie.
+     * @returns {Promise<object>} - An object containing details about the removed cookie, or a rejected promise with an error.
      */
     remove(details) {
         return new Promise((resolve, reject) => {
-            chrome.cookies.remove(details, (details) => {
-                if (chrome.runtime.lastError) {
-                    reject(chrome.runtime.lastError);
-                } else {
-                    resolve(details);
-                }
-            });
+            try {
+                chrome.cookies.remove(details, (result) => {
+                    if (chrome.runtime.lastError) {
+                        reject(new Error(`Failed to remove cookie: ${chrome.runtime.lastError.message}`));
+                    } else {
+                        resolve(result);
+                    }
+                });
+            } catch (error) {
+                reject(new Error(`Exception in CookieManager.remove: ${error.message}`));
+            }
         });
     }
 
     /**
      * Gets all cookies.
      * @param {object} [details] - The details to filter the cookies.
-     * @returns {Promise<chrome.cookies.Cookie[]>} - The cookies that match the given details.
+     * @returns {Promise<chrome.cookies.Cookie[]>} - The cookies that match the given details, or a rejected promise with an error.
      */
     getAll(details = {}) {
         return new Promise((resolve, reject) => {
-            chrome.cookies.getAll(details, (cookies) => {
-                if (chrome.runtime.lastError) {
-                    reject(chrome.runtime.lastError);
-                } else {
-                    resolve(cookies);
-                }
-            });
+            try {
+                chrome.cookies.getAll(details, (cookies) => {
+                    if (chrome.runtime.lastError) {
+                        reject(new Error(`Failed to get all cookies: ${chrome.runtime.lastError.message}`));
+                    } else {
+                        resolve(cookies);
+                    }
+                });
+            } catch (error) {
+                reject(new Error(`Exception in CookieManager.getAll: ${error.message}`));
+            }
         });
     }
 }
