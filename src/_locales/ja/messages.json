@@ -10,5 +10,16 @@
   "author_name": {
     "message": "SMAK SOFTWARE",
     "description": "拡張機能の公開者"
+  },
+
+
+
+  "options_homepage_title": {
+    "message": "設定",
+    "description": "設定ページのタイトル"
+  },
+  "options_homepage_description": {
+    "message": "このページでは、拡張機能の一般設定を構成できます。",
+    "description": "設定ページの説明"
   }
 }

@@ -10,5 +10,16 @@
   "author_name": {
     "message": "SMAK SOFTWARE",
     "description": "Éditeur de l'extension"
+  },
+
+
+
+  "options_homepage_title": {
+    "message": "Paramètres",
+    "description": "Titre de la page des paramètres"
+  },
+  "options_homepage_description": {
+    "message": "Sur cette page, vous pouvez configurer les paramètres généraux de l'extension.",
+    "description": "Description de la page des paramètres"
   }
 }

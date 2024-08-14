@@ -10,5 +10,16 @@
   "author_name": {
     "message": "SMAK SOFTWARE",
     "description": "Editor de la extensión"
+  },
+
+
+
+  "options_homepage_title": {
+    "message": "Configuración",
+    "description": "Título de la página de configuración"
+  },
+  "options_homepage_description": {
+    "message": "En esta página, puedes configurar la configuración general de la extensión.",
+    "description": "Descripción de la página de configuración"
   }
 }

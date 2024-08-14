@@ -10,5 +10,16 @@
   "author_name": {
     "message": "SMAK SOFTWARE",
     "description": "Extension publisher"
+  },
+
+
+
+  "options_homepage_title": {
+    "message": "Settings",
+    "description": "Title of the settings page"
+  },
+  "options_homepage_description": {
+    "message": "On this page, you can configure the general settings of the extension.",
+    "description": "Description of the settings page"
   }
 }

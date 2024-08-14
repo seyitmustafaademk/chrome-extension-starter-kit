@@ -10,5 +10,16 @@
   "author_name": {
     "message": "SMAK SOFTWARE",
     "description": "منتشر کننده گسترش"
+  },
+
+
+
+  "options_homepage_title": {
+    "message": "تنظیمات",
+    "description": "عنوان صفحه تنظیمات"
+  },
+  "options_homepage_description": {
+    "message": "در این صفحه، می‌توانید تنظیمات عمومی گسترش را پیکربندی کنید.",
+    "description": "توضیحات صفحه تنظیمات"
   }
 }

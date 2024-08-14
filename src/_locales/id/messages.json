@@ -10,5 +10,16 @@
   "author_name": {
     "message": "SMAK SOFTWARE",
     "description": "Penerbit ekstensi"
+  },
+
+
+
+  "options_homepage_title": {
+    "message": "Pengaturan",
+    "description": "Judul halaman pengaturan"
+  },
+  "options_homepage_description": {
+    "message": "Di halaman ini, Anda dapat mengkonfigurasi pengaturan umum ekstensi.",
+    "description": "Deskripsi halaman pengaturan"
   }
 }

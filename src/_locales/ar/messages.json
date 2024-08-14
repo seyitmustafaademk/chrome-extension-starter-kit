@@ -10,5 +10,16 @@
   "author_name": {
     "message": "SMAK SOFTWARE",
     "description": "الشركة/الشخص المطور للإضافة"
+  },
+
+
+
+  "options_homepage_title": {
+    "message": "الإعدادات",
+    "description": "عنوان صفحة الإعدادات"
+  },
+  "options_homepage_description": {
+    "message": "في هذه الصفحة، يمكنك تكوين الإعدادات العامة للإضافة.",
+    "description": "وصف صفحة الإعدادات"
   }
 }

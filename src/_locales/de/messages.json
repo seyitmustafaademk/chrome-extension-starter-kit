@@ -10,5 +10,16 @@
   "author_name": {
     "message": "SMAK SOFTWARE",
     "description": "Veröffentlicher der Erweiterung"
+  },
+
+
+
+  "options_homepage_title": {
+    "message": "Einstellungen",
+    "description": "Titel der Einstellungsseite"
+  },
+  "options_homepage_description": {
+    "message": "Auf dieser Seite können Sie die allgemeinen Einstellungen der Erweiterung konfigurieren.",
+    "description": "Beschreibung der Einstellungsseite"
   }
 }

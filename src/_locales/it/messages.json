@@ -10,5 +10,16 @@
   "author_name": {
     "message": "SMAK SOFTWARE",
     "description": "Editore dell'estensione"
+  },
+
+
+
+  "options_homepage_title": {
+    "message": "Impostazioni",
+    "description": "Titolo della pagina delle impostazioni"
+  },
+  "options_homepage_description": {
+    "message": "In questa pagina, puoi configurare le impostazioni generali dell'estensione.",
+    "description": "Descrizione della pagina delle impostazioni"
   }
 }

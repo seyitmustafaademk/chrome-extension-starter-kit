@@ -10,5 +10,16 @@
   "author_name": {
     "message": "SMAK SOFTWARE",
     "description": "Издатель расширения"
+  },
+
+
+
+  "options_homepage_title": {
+    "message": "Настройки",
+    "description": "Заголовок страницы настроек"
+  },
+  "options_homepage_description": {
+    "message": "На этой странице вы можете настроить общие параметры расширения.",
+    "description": "Описание страницы настроек"
   }
 }

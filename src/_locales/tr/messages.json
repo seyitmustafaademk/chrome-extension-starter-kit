@@ -1,6 +1,6 @@
 {
   "app_name": {
-    "message": "Chrome Uzantı Başlangıç Paketi",
+    "message": "Uzantı Başlangıç Paketi",
     "description": "Uzantı adı"
   },
   "app_description": {
@@ -10,5 +10,16 @@
   "author_name": {
     "message": "SMAK SOFTWARE",
     "description": "Uzantı yayınlayan kişi/şirket"
+  },
+
+
+
+  "options_homepage_title": {
+    "message": "Ayarlar",
+    "description": "Ayarlar sayfasının başlığı"
+  },
+  "options_homepage_description": {
+    "message": "Bu sayfada uzantı genel ayarlarınızı yapabilirsiniz.",
+    "description": "Ayarlar sayfasının açıklaması"
   }
 }
