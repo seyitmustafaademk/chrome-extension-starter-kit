@@ -1,4 +1,14 @@
+import {LanguageManager} from './scripting/utils/languageManager.js';
+
 chrome.runtime.onInstalled.addListener(function(details) {
+    // Dil ayarlarını başlatır ve tarayıcı dilini alır. Eğer kayıtlı bir dil ayarı
+    // yoksa tarayıcı dilini kaydeder.
+    LanguageManager.initialize().then(() => {
+        console.log('Dil ayarları başarıyla yüklendi ve uygulandı.');
+    }).catch(error => {
+        console.error('Dil ayarları yüklenirken bir hata oluştu:', error.message);
+    });
+
     if (details.reason === "install") {
         console.log("Extension installed");
         // Perform actions on installation, like setting default storage values
