@@ -22,6 +22,17 @@ Bu başlangıç kitini kullanarak yeni bir Chrome uzantısı projesi başlatmak 
     npm install
     ```
 
+4. Uzantının production modunu derleyin:
+    ```bash
+    npx webpack --mode=production
+    ```
+
+5. Uzantıyı tarayıcınıza yükleyin:
+    - Chrome tarayıcınızda `chrome://extensions/` adresine gidin.
+    - Sağ üst köşede bulunan "Geliştirici modu"nu etkinleştirin.
+    - "Paketlenmemiş uzantıyı yükle" butonuna tıklayın ve `dist` klasörünü seçin.
+    
+
 
 
 ## Özellikler
@@ -37,22 +48,37 @@ kullanılmasını sağlayabilirsiniz.
 
 ### 3. Popup ve Options Sayfaları
 - **Popup**: Kullanıcı arayüzü için `popup` klasöründe `popup.html` ve `popup.js` dosyalarını 
- kullanabilirsiniz. Popup, kullanıcı etkileşimlerini hızlı bir şekilde yönetmek için kullanılır.
+ kullanabilirsiniz. Popup, kullanıcı etkileşimlerini hızlı bir şekilde yönetmek için kullanılır.   
+ Popup sayfasında varsayılan olarak Dark Mode özelliği ve Ayarlar butonu bulunmaktadır.  
 
 - **Options**: Kullanıcıların uzantınızın ayarlarını yönetebileceği `options` klasöründe 
- `options.html` ve `options.js` dosyalarını kullanabilirsiniz.
+ `options.html` ve `options.js` dosyalarını kullanabilirsiniz.  
+  Options sayfası, varsayılan olarak dil seçimi ve koyu mod özelliği ayarlarını içerir.
+ 
 
 ### 4. Scripting Klasörü
 
 `scripting/utils` altında kullanışlı yardımcı sınıflarınızı ve iş mantığınızı organize 
  edebilirsiniz. Örneğin:
 
-- **StorageManager**: Gelişmiş depolama yöneticisi, `chrome.storage.local` API'sini 
- kullanarak verileri yönetir.
-- **SessionManager**: Oturum yöneticisi sınıfı, kullanıcı oturum bilgilerini yönetmek 
- için kullanılabilir.
-- **CookieManager**: Çerez yöneticisi sınıfı, tarayıcı çerezlerini yönetmek için 
+- **Bookmark Manager**: Yer imi yöneticisi sınıfı, tarayıcı yer imlerini yönetmek için 
  kullanılabilir.
+- **Context Menu Manager**: Sağ tıklama menüsü yöneticisi sınıfı, tarayıcı sağ tıklama 
+ menülerini yönetmek için kullanılabilir.
+- **Message Manager**: Uzantı içi dosya ve sayfalar arasında mesajlaşmayı yöneten sınıf.
+- **Notification Manager**: Bildirim yöneticisi sınıfı, tarayıcı bildirimlerini yönetmek 
+ için kullanılabilir.
+- **Storage Manager**: Gelişmiş depolama yöneticisi, `chrome.storage.local` API'sini 
+ kullanarak verileri yönetir.
+- **Session Manager**: Oturum yöneticisi sınıfı, kullanıcı oturum bilgilerini yönetmek 
+ için kullanılabilir.
+- **Cookie Manager**: Çerez yöneticisi sınıfı, tarayıcı çerezlerini yönetmek için 
+ kullanılabilir.
+- **Tab Manager**: Sekme yöneticisi sınıfı, tarayıcı sekmelerini yönetmek için 
+ kullanılabilir.
+- **Dark Mode Manager**: Koyu mod yöneticisi sınıfı, koyu modu etkinleştirmek ve 
+ devre dışı bırakmak için kullanılabilir.
+
 
 ## Geliştirme
 Projenizi geliştirirken, değişiklikleri yapın ve aşağıdaki komutlarla projenizi derleyin 
@@ -66,4 +92,9 @@ npx webpack --mode=development --watch
 ```bash
 # Production modunda uzantıyı derleyin
 npx webpack --mode=production
+```
+
+Geliştirme sırasında sürekli olarak değişiklikleri izlemek için aşağıdaki komutu kullanın:
+```bash
+npm run watch
 ```
