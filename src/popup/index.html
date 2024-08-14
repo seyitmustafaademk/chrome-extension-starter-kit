@@ -1,15 +1,41 @@
-<!doctype html>
-<html lang="tr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Popup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extension Starter Kit</title>
+    <link rel="stylesheet" href="../assets/styles/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/styles/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="../assets/styles/popup.css">
 </head>
-<body>
-    <h1>Popup</h1>
-    <p>Popup içeriği</p>
+<body class="light-mode">
+<header>
+    <div class="container mx-0">
+        <div class="row align-items-center">
+            <div class="col-8">
+                <h5 id="app-name" class="mb-0">Extension Starter Kit</h5>
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+                <label for="input-dark-mode" class="me-2">
+                    <div class="dark-mode-switch">
+                        <input id="input-dark-mode" type="checkbox"/>
+                        <div class="insetcover">
+                            <div class="sun-moon sun"></div>
+                            <div class="sun-moon moon"></div>
+                            <div class="stars"></div>
+                        </div>
+                        <div class="sun-moon-shadow"></div>
+                        <div class="shadow-overlay"></div>
+                    </div>
+                </label>
+                <a id="btn-settings" class="btn btn-primary btn-sm" href="#">
+                    <i class="fa fa-cog"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script src="popup.js" type="module"></script>
 </body>
 </html>

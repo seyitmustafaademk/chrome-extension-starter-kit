@@ -1,0 +1,193 @@
+body {
+    width: 500px;
+    height: 300px;
+    padding: 20px;
+    background-color: #F5F5F5FF;
+    color: #22272E;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    transition: .5s ease background-color .5s;
+}
+
+body[data-dark-mode="true"] {
+    background-color: #22272E;
+    color: #F5F5F5FF;
+}
+
+body *,
+body *::before,
+body *::after {
+    position: relative;
+    box-sizing: border-box;
+}
+
+body header {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #22272E;
+    margin-bottom: 20px;
+}
+
+body[data-dark-mode="true"] header {
+    border-bottom: 1px solid #E1E4E8;
+}
+
+body .dark-mode-switch {
+    width: 45px;
+    height: 20px;
+    padding: 2px;
+    box-shadow: -1px 5px 4px inset rgba(0, 0, 0, 0.44);
+    box-sizing: content-box;
+    background-color: #409fe4;
+    background-clip: padding-box;
+    border: 2px solid #00000000;
+    border-radius: 9999px;
+    transition: 0.1s ease;
+    cursor: pointer;
+    z-index: 1;
+}
+
+body .dark-mode-switch::before {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    top: -1px;
+    left: -1px;
+    bottom: -1px;
+    right: -1px;
+    z-index: -1;
+    background: linear-gradient(130deg, #a1b4d1, #fefefd);
+}
+
+body .dark-mode-switch::after {
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    transition: 1s cubic-bezier(0.65, -0.05, 0.29, 1.2);
+    background-color: inherit;
+    background-image: url("../images/darkmode-switch/clouds.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+body .shadow-overlay {
+    position: absolute;
+    inset: 0;
+    box-shadow: -1px 5px 4px inset rgba(0, 0, 0, 0.44);
+    border-radius: inherit;
+    z-index: 10;
+}
+
+body .sun-moon::before {
+    position: absolute;
+    content: "";
+    border-radius: inherit;
+    inset: 1px;
+    background-color: #fed32f;
+}
+
+body .insetcover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: inherit;
+    overflow: hidden;
+    border-radius: inherit;
+}
+
+body .sun-moon-shadow {
+    font-size: 20px;
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    border-radius: 50%;
+    right: calc(100% - 5px - 1em);
+    transition: 0.6s cubic-bezier(0.65, -0.05, 0.29, 1.2);
+    z-index: 1;
+    box-shadow: 0 8px 11px rgba(0, 0, 0, 0.44);
+}
+
+body .sun-moon {
+    font-size: 20px;
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    background-image: linear-gradient(130deg, #f2fa8f, #eb9a25);
+    border-radius: 50%;
+    right: calc(100% - 5px - 1em);
+    transition: 0.6s cubic-bezier(0.65, -0.05, 0.29, 1.2);
+    background-clip: padding-box;
+    z-index: 5;
+    box-shadow: 0 0 0 9px rgba(255, 255, 255, 0.1), 0 0 0 18px rgba(255, 255, 255, 0.1), 0 0 0 27px rgba(255, 255, 255, 0.1);
+}
+
+body .sun-moon.moon {
+    background-image: linear-gradient(130deg, #fafbfe, #9aa4b1);
+    opacity: 0;
+}
+
+body .sun-moon.moon::before {
+    position: absolute;
+    content: "";
+    border-radius: inherit;
+    inset: 1px;
+    background-color: #d2d9e1;
+    background-image: url("../images/darkmode-switch/moon-crater.png");
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#input-dark-mode {
+    display: none;
+}
+
+.stars {
+    background-image: url("../images/darkmode-switch/stars.png");
+    position: absolute;
+    width: 45%;
+    bottom: 5px;
+    height: 80%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.6s cubic-bezier(0.65, -0.05, 0.29, 1.2);
+    transform: translateY(-125%) translateZ(0);
+}
+
+#input-dark-mode:checked + .insetcover .sun-moon,
+#input-dark-mode:checked ~ .sun-moon-shadow {
+    right: 5px;
+}
+
+#input-dark-mode:checked + .insetcover .sun {
+    opacity: 0;
+}
+
+#input-dark-mode:not(:checked) + .insetcover .moon {
+    transform: rotate(-180deg);
+}
+
+#input-dark-mode:checked + .insetcover .moon {
+    opacity: 1;
+}
+
+#input-dark-mode:checked + .insetcover .stars {
+    transform: translateY(0%) translateZ(0);
+    transition: 1s cubic-bezier(0.65, -0.05, 0.29, 1.2);
+}
+
+label[data-dark-mode="true"] .dark-mode-switch {
+    background-color: #212737;
+}
+
+label[data-dark-mode="true"] .dark-mode-switch::after {
+    background-position: 0 100px;
+}
