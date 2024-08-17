@@ -1,4 +1,5 @@
 const path = require('path');
+const glob = require('glob');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
@@ -7,19 +8,24 @@ module.exports = {
     entry: {
         background: './src/background.js',
         content: './src/content.js',
-        options: './src/options/options.js',
-        popup: './src/popup/popup.js'
+        popup: './src/popup/popup.js',
+        // Tüm src/options/ içindeki JS dosyalarını ve alt dizinlerdeki options.js dosyalarını dahil edin
+        ...glob.sync('./src/options/**/*.js').reduce((entries, file) => {
+            const entryName = path.relative('./src', file).replace(/\.js$/, '');
+            entries[entryName] = './' + file.replace(/\\/g, '/'); // Yolun başına ./ ekleyin ve Windows'taki \ karakterlerini / ile değiştirin
+            return entries;
+        }, {})
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: (pathData) => {
-            // Giriş noktalarının isimlerine göre çıktıları özelleştirin
-            if (pathData.chunk.name === 'popup') {
-                return 'popup/[name].js'; // popup.js dosyasını popup klasörü altında çıkar
-            } else if (pathData.chunk.name === 'options') {
-                return 'options/[name].js'; // options.js dosyasını options klasörü altında çıkar
+            if (pathData.chunk.name.startsWith('popup')) {
+                return `popup/[name].js`;
+            } else if (pathData.chunk.name.startsWith('options')) {
+                const relativePath = pathData.chunk.name.replace(/^options\//, 'options/');
+                return `${relativePath}.js`;
             }
-            return '[name].js'; // Diğer dosyalar ana dizinde çıksın
+            return `[name].js`;
         }
     },
     plugins: [
@@ -29,7 +35,12 @@ module.exports = {
                 { from: 'src/manifest.json', to: '' },
                 { from: 'src/_locales', to: '_locales' },
                 { from: 'src/popup/index.html', to: 'popup/' },
-                { from: 'src/options/index.html', to: 'options/' },
+                {
+                    from: 'src/options/**/*.html',
+                    to: ({ context, absoluteFilename }) => {
+                        return path.relative(path.resolve(__dirname, 'src'), absoluteFilename);
+                    },
+                },
                 { from: 'src/assets', to: 'assets' }
             ]
         })
