@@ -111,4 +111,21 @@ export class LanguageManager {
             });
     }
 
+    /**
+     * Kullanılabilir dillerin listesini yükler.
+     *
+     * @returns {Promise<object>} - Kullanılabilir dilleri içeren bir promise döndürür.
+     */
+    static async getAvailableLanguages() {
+        try {
+            const response = await fetch('/_locales/languages.json');
+            if (!response.ok) {
+                console.error('Dil listesi yüklenirken bir hata oluştu');
+            }
+            return response.json();
+        } catch (error) {
+            console.error('Dil listesi yüklenirken bir hata oluştu:', error.message);
+            return {};
+        }
+    }
 }
