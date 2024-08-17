@@ -1,0 +1,292 @@
+/* Genel Değişkenleri */
+:root {
+    /* text sizes - px */
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-md: 16px;
+    --text-lg: 18px;
+    --text-xl: 20px;
+    --text-2xl: 24px;
+    --text-3xl: 30px;
+    --text-4xl: 36px;
+    --text-5xl: 48px;
+    --text-6xl: 64px;
+
+    --sidebar-width: 300px;
+}
+/* Light Mode Renk Değişkenleri */
+:root:has([data-dark-mode="false"]) {
+    --primary-color: #6200EE;
+    --primary-variant-color: #3700B3;
+    --secondary-color: #03DAC6;
+    --secondary-variant-color: #018786;
+    --background-color: #FFFFFF;
+    --surface-color: #FFFFFF;
+    --error-color: #B00020;
+    --on-primary-color: #FFFFFF;
+    --on-secondary-color: #000000;
+    --on-background-color: #0f0f0f;
+    --on-surface-color: #000000;
+    --on-error-color: #FFFFFF;
+    --button-background-color: #6200EE;
+    --button-color: #FFFFFF;
+    --button-hover-background-color: #8e00ff;
+    --button-hover-color: #FFFFFF;
+    --button-active-background-color: #3700B3;
+    --button-active-color: #FFFFFF;
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+
+    /* Bootstrap */
+    --card-bg: #FFFFFF;
+    --card-border-color: rgba(0, 0, 0, 0.125);
+    --card-box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+
+
+
+}
+/* Dark Mode Renk Değişkenleri */
+:root:has([data-dark-mode="true"]) {
+    --primary-color: #BB86FC;
+    --primary-variant-color: #3700B3;
+    --secondary-color: #03DAC6;
+    --secondary-variant-color: #03DAC6;
+    --background-color: #121212;
+    --surface-color: #121212;
+    --error-color: #CF6679;
+    --on-primary-color: #000000;
+    --on-secondary-color: #000000;
+    --on-background-color: #FFFFFF;
+    --on-surface-color: #FFFFFF;
+    --on-error-color: #000000;
+    --button-background-color: #3700B3;
+    --button-color: #FFFFFF;
+    --button-hover-background-color: #8e00ff;
+    --button-hover-color: #FFFFFF;
+    --button-active-background-color: #5e2aff;
+    --button-active-color: #FFFFFF;
+    --box-shadow-color: rgba(255, 255, 255, 0.2);
+
+    /* Bootstrap */
+    --card-bg: #121212;
+    --card-border-color: rgba(255, 255, 255, 0.125);
+    --card-box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+
+}
+/* Tüm bileşenlerde geçerli olan CSS */
+* {
+    position: relative;
+    box-sizing: border-box;
+    transition: color 0.2s ease-in-out,
+                background-color 0.5s ease-in-out,
+                box-shadow 0.3s ease-in-out
+                !important;
+}
+
+/* HTML ve Body */
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: var(--text-md);
+    background-color: var(--background-color);
+    color: var(--on-background-color);
+    overflow: hidden;
+}
+
+/* Container */
+.page-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sidebar */
+aside {
+    display: flex;
+    flex-direction: column;
+    width: var(--sidebar-width);
+    height: 100%;
+    background-color: var(--background-color);
+    color: var(--on-background-color);
+    padding: 1rem;
+    box-shadow: 0 0 10px var(--box-shadow-color);
+    z-index: 1000;
+}
+/* Sidebar Header */
+aside header {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    height: 75px;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--on-background-color);
+}
+aside header h1 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+}
+/* Sidebar Nav */
+aside nav {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 0;
+}
+aside nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+aside nav ul li {
+    padding: 0;
+    margin: 0.4rem 0;
+}
+aside nav ul li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: var(--text-md);
+    font-weight: 500;
+    text-decoration: none;
+    background-color: var(--button-background-color)!important;
+    color: var(--button-color)!important;
+}
+aside nav ul li a:hover {
+    background-color: var(--button-hover-background-color)!important;
+    color: var(--button-hover-color)!important;
+    transition: 0.1s ease-in-out;
+}
+aside nav ul li a.active {
+    background-color: var(--button-active-background-color)!important;
+    color: var(--button-active-color)!important;
+}
+aside nav ul li a.active:hover {
+    background-color: var(--button-hover-background-color)!important;
+    color: var(--button-active-color)!important;
+}
+
+
+/* Main */
+.main-wrapper {
+    width: calc(100% - var(--sidebar-width));
+    height: 100%;
+    background-color: var(--background-color);
+    color: var(--on-surface-color);
+    overflow-y: auto;
+}
+.main-wrapper main {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    background-color: var(--background-color);
+    color: var(--on-surface-color);
+}
+/* Main Header */
+main nav {
+    height: 75px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: var(--background-color);
+    color: var(--on-surface-color);
+    border-bottom: 1px solid var(--on-surface-color);
+}
+main nav h2 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    margin: 0;
+}
+main nav p {
+    font-size: var(--text-md);
+    font-weight: 500;
+}
+main .content-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 2rem 0;
+    background-color: var(--background-color);
+    color: var(--on-surface-color);
+}
+
+.main-wrapper footer {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color);
+    color: var(--on-surface-color);
+    box-shadow: 0 -5px 10px var(--box-shadow-color);
+}
+
+
+
+.text-xs {
+    font-size: var(--text-xs);
+}
+.text-sm {
+    font-size: var(--text-sm);
+}
+.text-md {
+    font-size: var(--text-md);
+}
+.text-lg {
+    font-size: var(--text-lg);
+}
+.text-xl {
+    font-size: var(--text-xl);
+}
+.text-2xl {
+    font-size: var(--text-2xl);
+}
+.text-3xl {
+    font-size: var(--text-3xl);
+}
+.text-4xl {
+    font-size: var(--text-4xl);
+}
+.text-5xl {
+    font-size: var(--text-5xl);
+}
+.text-6xl {
+    font-size: var(--text-6xl);
+}
+
+/* Genel Etiketler */
+h1, h2, h3, h4, h5, h6, p, a, span, div, li, ul, ol, input, button, label, form, select, option, textarea {
+    color: var(--on-surface-color)!important;
+}
+a {
+    text-decoration: none;
+    color: var(--on-surface-color)!important;
+}
+input, button, select, textarea {
+    background-color: var(--background-color)!important;
+    color: var(--on-surface-color)!important;
+    border: 1px solid var(--on-surface-color)!important;
+}
+
+/* Bootstrap */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border-color);
+    box-shadow: var(--card-box-shadow)!important;
+}
+.card-header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--card-border-color);
+}
+.card-body {
+    background-color: var(--card-bg);
+}

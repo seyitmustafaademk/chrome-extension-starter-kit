@@ -13,13 +13,64 @@
   },
 
 
-
-  "options_homepage_title": {
-    "message": "Ayarlar",
-    "description": "Ayarlar sayfasının başlığı"
+  "options_sidebar_app_settings_label": {
+    "message": "Uygulama Ayarları",
+    "description": "Ayarlar sayfası kenar çubuğu etiketi"
   },
-  "options_homepage_description": {
+  "options_sidebar_ext_settings_label": {
+    "message": "Uzantı Ayarları",
+    "description": "Ayarlar sayfası kenar çubuğu etiketi"
+  },
+
+  "page_title_app_options": {
+    "message": "Uygulama Ayarları",
+    "description": "Uygulama Ayarları sayfasının başlığı"
+  },
+  "page_description_app_options": {
     "message": "Bu sayfada uzantı genel ayarlarınızı yapabilirsiniz.",
-    "description": "Ayarlar sayfasının açıklaması"
+    "description": "Uygulama Ayarları sayfasının açıklaması"
+  },
+  "page_title_ext_options": {
+    "message": "Uzantı Ayarları",
+    "description": "Uzantı Ayarları sayfasının başlığı"
+  },
+  "page_description_ext_options": {
+    "message": "Bu sayfada uzantı genel ayarlarınızı yapabilirsiniz.",
+    "description": "Uzantı Ayarları sayfasının açıklaması"
+  },
+
+
+  "ext_options_language_card_title": {
+    "message": "Dil Ayarları",
+    "description": "Dil ayarları kartı başlığı"
+  },
+  "ext_options_language_card_description": {
+    "message": "Uygulama içi dil ayarını buradan ayarlayabilirsiniz.",
+    "description": "Dil ayarları kartı açıklaması"
+  },
+  "ext_options_language_card_select_label": {
+      "message": "Dil Seçimi",
+      "description": "Dil seçimi etiketi"
+  },
+  "ext_options_language_card_save_button": {
+      "message": "Kaydet",
+      "description": "Dil seçimini kaydetme butonu"
+  },
+
+  "ext_options_darkmode_card_title": {
+    "message": "Karanlık Mod Ayarları",
+    "description": "Karanlık mod ayarları kartı başlığı"
+  },
+  "ext_options_darkmode_card_description": {
+    "message": "Uygulama içi dark mode ayarını buradan ayarlayabilirsiniz.",
+    "description": "Karanlık mod ayarları kartı açıklaması"
+  },
+  "ext_options_darkmode_card_select_label": {
+      "message": "Karanlık Mod Seçimi",
+      "description": "Karanlık mod seçimi etiketi"
+  },
+  "ext_options_darkmode_card_save_button": {
+      "message": "Kaydet",
+      "description": "Karanlık mod seçimini kaydetme butonu"
   }
 }
