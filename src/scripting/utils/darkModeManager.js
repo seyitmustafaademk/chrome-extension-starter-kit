@@ -9,8 +9,12 @@ export class DarkModeManager {
      */
     static async isDarkModeEnabled() {
         try {
-            const value = await StorageManager.getItem('darkMode');
-            return value !== null ? value : false;
+            let value = await StorageManager.getItem('darkMode');
+            // Eğer kayıtlı bir değer yoksa, varsayılan olarak tarayıcı ayarını kullan
+            if (value === null || value === undefined) {
+                value = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+            return value;
         } catch (error) {
             console.error('Failed to retrieve Dark Mode setting:', error.message);
             return false; // Hata durumunda varsayılan olarak false döndür
